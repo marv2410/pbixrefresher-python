@@ -84,7 +84,7 @@ def main():
 		win["Save"].click_input()
 		
 		publish_dialog.child_window(title = WORKSPACE, control_type="DataItem", found_index=0).click_input()
-		publish_dialog.Select.click()
+		publish_dialog.Select.click_input()
 		try:
 			win.Replace.wait('visible', timeout = 10)
 		except Exception:
