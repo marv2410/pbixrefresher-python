@@ -73,6 +73,7 @@ def main():
 	# Publish
 	if args.publish:
 		print("Publish")
+		type_keys("^S", win)
 		win.Publish.click_input()
 		print("clic Publish")
 		publish_dialog = win.child_window(auto_id = "KoPublishToGroupDialog")
