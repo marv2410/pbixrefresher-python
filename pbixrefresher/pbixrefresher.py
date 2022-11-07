@@ -64,7 +64,7 @@ def main():
 
 	# Save
 	print("Saving")
-	type_keys("%1", win)
+	type_keys("^S", win)
 	#wait_win_ready(win)
 	time.sleep(5)
 	win.wait("enabled", timeout = REFRESH_TIMEOUT)
