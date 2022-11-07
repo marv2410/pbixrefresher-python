@@ -73,10 +73,18 @@ def main():
 	if args.publish:
 		print("Publish")
 		win.Publish.click_input()
-		#publish_dialog = win.child_window(auto_id = "KoPublishToGroupDialog")
-		#publish_dialog.child_window(title = WORKSPACE).click_input()
-		win.child_window(title=WORKSPACE, control_type="DataItem", found_index=0).click_input()
-		win.Select.click()
+		publish_dialog = win.child_window(auto_id = "KoPublishToGroupDialog")
+		try:
+			win.Save.wait('visible', timeout = 10)
+		except Exception:
+			pass
+		if win.Save.exists():
+			win.Save.click_input()
+		win["Save"].wait('visible', timeout = REFRESH_TIMEOUT)
+		win["Save"].click_input()
+		
+		publish_dialog.child_window(title = WORKSPACE).click_input()
+		publish_dialog.Select.click()
 		try:
 			win.Replace.wait('visible', timeout = 10)
 		except Exception:
