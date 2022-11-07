@@ -68,19 +68,15 @@ def main():
 	#wait_win_ready(win)
 	time.sleep(5)
 	win.wait("enabled", timeout = REFRESH_TIMEOUT)
-	print("end Saving")
-
+	
 	# Publish
 	if args.publish:
 		print("Publish")
-		type_keys("^S", win)
 		win.Publish.click_input()
-		print("clic Publish")
-		publish_dialog = win.child_window(auto_id = "KoPublishToGroupDialog")
-		print("publish_dialog")
-		publish_dialog.child_window(title = WORKSPACE).click_input()
-		print("publish workspace")
-		publish_dialog.Select.click()
+		#publish_dialog = win.child_window(auto_id = "KoPublishToGroupDialog")
+		#publish_dialog.child_window(title = WORKSPACE).click_input()
+		win.child_window(title=WORKSPACE, control_type="DataItem", found_index=0).click_input()
+		win.Select.click()
 		try:
 			win.Replace.wait('visible', timeout = 10)
 		except Exception:
